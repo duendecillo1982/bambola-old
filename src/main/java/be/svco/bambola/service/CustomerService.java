@@ -20,7 +20,7 @@ public class CustomerService {
     public List findAll() {
         return customerRepository.findAll();
     }
-    
+
     public Customer findById(Long id) {
     	Optional<Customer> optionalCustomer =  customerRepository.findById(id);
     	Customer customer = optionalCustomer.get();
@@ -41,6 +41,10 @@ public class CustomerService {
 
 	public Page<Customer> listAllByPage(Pageable pageable) {
 		return customerRepository.findAll(pageable);
+	}
+	
+	public Page<Customer> findByFirstName(String searchTerm, Pageable pageable) {
+		return customerRepository.findByFirstNameContainingIgnoreCase(searchTerm, pageable);
 	}
 	
 }

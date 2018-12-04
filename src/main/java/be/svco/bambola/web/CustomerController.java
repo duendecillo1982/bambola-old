@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import be.svco.bambola.model.Customer;
@@ -32,10 +33,17 @@ public class CustomerController {
 	}
 */
 	
-	
+/*	
 	@GetMapping
 	public Page<Customer> listCustomers ( Pageable pageable){
 		Page<Customer> customers = customerService.listAllByPage(pageable);
+		return customers;
+	} 
+*/
+	
+	@GetMapping
+	public Page<Customer> findByFirstName (@RequestParam(value="searchTerm", defaultValue="") String searchTerm, Pageable pageable){
+		Page<Customer> customers = customerService.findByFirstName(searchTerm, pageable);
 		return customers;
 	} 
 	
