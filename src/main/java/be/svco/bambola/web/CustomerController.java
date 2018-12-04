@@ -42,10 +42,12 @@ public class CustomerController {
 */
 	
 	@GetMapping
-	public Page<Customer> findByFirstName (@RequestParam(value="searchTerm", defaultValue="") String searchTerm, Pageable pageable){
-		Page<Customer> customers = customerService.findByFirstName(searchTerm, pageable);
+	public Page<Customer> findByLastName 
+				(@RequestParam(value = "lastName", defaultValue = "", required = false) String lastName, 
+				Pageable pageable){
+		Page<Customer> customers = customerService.findByLastName(lastName, pageable);
 		return customers;
-	} 
+	}
 	
 	@GetMapping(path = { "/{id}" })
 	public Customer findOne(@PathVariable("id") long id) {

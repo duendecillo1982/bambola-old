@@ -43,8 +43,8 @@ public class CustomerService {
 		return customerRepository.findAll(pageable);
 	}
 	
-	public Page<Customer> findByFirstName(String searchTerm, Pageable pageable) {
-		return customerRepository.findByFirstNameContainingIgnoreCase(searchTerm, pageable);
+	public Page<Customer> findByLastName(String lastName, Pageable pageable) {
+		return customerRepository.findByLastNameContainingIgnoreCase(lastName, pageable);
 	}
 	
 }

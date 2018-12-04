@@ -8,6 +8,6 @@ import be.svco.bambola.model.Customer;
 
 public interface CustomerRepository extends JpaRepository <Customer, Long> {
 	
-	Page<Customer> findByFirstNameContainingIgnoreCase(String searchTerm, Pageable pageable);
+	Page<Customer> findByLastNameContainingIgnoreCase(String lastName, Pageable pageable);
 	
 }
